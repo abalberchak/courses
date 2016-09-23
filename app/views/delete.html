@@ -1,0 +1,48 @@
+<html>
+  <head>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12">
+  				<h3>Are you sure you want to delete the following course?</h3>
+  			</div>
+  		</div>
+  		<!-- fix the if criteria! -->
+  		{% for i in courses %}
+  			
+ 		<div class="row">
+  			<div class="col-md-2">
+  				<h6>Name:</h6>
+  			</div>
+  			<div class="col-md-10">
+  				<h6>{{ i['title'] }}</h6>
+  			</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-md-2">
+  				<h6>Description:</h6>
+  			</div>
+  			<div class="col-md-10">
+  				<h6>{{ i['description'] }}</h6>
+  			</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-md-4">
+  			<form action="/cancel">
+  				<button>No</button>
+  			</form>
+  			</div>
+  			<div class="col-md-4">
+  			<form action="/remove_confirmation/{{ i['id'] }}">
+  				<button>Yes! I want to delete this</button>
+  			</form>
+  			</div>
+  		</div>
+  			
+  		{% endfor %}
+	</div>
+  </body>
+</html>
